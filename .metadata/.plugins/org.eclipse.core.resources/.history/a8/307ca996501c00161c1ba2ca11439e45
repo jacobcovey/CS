@@ -126,13 +126,10 @@ string ExpressionManager::postfixEvaluate(string postfixExpression){
 			case '-' : result = left - right;
 						break;
 			case '*' : if (left == 0 || right == 0)
-							result = 0;
-						else
+							return "invalid";
 						result = left * right;
 						break;
-			case '/' : if (left == 0 || right == 0)
-						return "invalid";
-				result = left / right;
+			case '/' : result = left / right;
 						break;
 			case '%' : result = left % right;
 						break;
