@@ -1,0 +1,20 @@
+//============================================================================
+// Name        : Lab3.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "ExpressionManagerInterface.h"
+#include "ExpresionManger.h"
+
+using namespace std;
+
+int main() {
+	ExpressionManager em;
+
+	cout << em.isBalanced("test");
+	return 0;
+}

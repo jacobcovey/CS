@@ -1,0 +1,15 @@
+08:39:51 **** Build of configuration Debug for project LabTwo ****
+make all 
+Building file: ../src/LabTwo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/LabTwo.d" -MT"src/LabTwo.d" -o "src/LabTwo.o" "../src/LabTwo.cpp"
+Finished building: ../src/LabTwo.cpp
+ 
+Building target: LabTwo
+Invoking: GCC C++ Linker
+g++  -o "LabTwo"  ./src/Factory.o ./src/LabTwo.o   
+Finished building target: LabTwo
+ 
+
+08:39:51 Build Finished (took 431ms)
+

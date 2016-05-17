@@ -1,0 +1,31 @@
+08:39:50 **** Build of configuration Debug for project LabOneRedo ****
+make all 
+Building file: ../Student_Code/Archer.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Student_Code/Archer.d" -MT"Student_Code/Archer.d" -o "Student_Code/Archer.o" "../Student_Code/Archer.cpp"
+In file included from ../Student_Code/Archer.h:19:0,
+                 from ../Student_Code/Archer.cpp:14:
+../Student_Code/Fighter.h: In constructor ‘Fighter::Fighter(std::__cxx11::string, int, int, int, int)’:
+../Student_Code/Fighter.h:64:9: warning: ‘Fighter::maxMagic’ will be initialized after [-Wreorder]
+     int maxMagic;
+         ^
+../Student_Code/Fighter.h:59:9: warning:   ‘int Fighter::currentHp’ [-Wreorder]
+     int currentHp;
+         ^
+../Student_Code/Fighter.h:24:5: warning:   when initialized here [-Wreorder]
+     Fighter(string name_in, int Hp_in, int strength_in, int speed_in, int magic_in):
+     ^
+../Student_Code/Archer.cpp: In function ‘std::ostream& operator<<(std::ostream&, const Archer&)’:
+../Student_Code/Archer.cpp:90:63: error: passing ‘const Archer’ as ‘this’ argument discards qualifiers [-fpermissive]
+                             os << "Name: " <<  archer.getName() << '\n' << "Current HP: " << '\n';
+                                                               ^
+In file included from ../Student_Code/Archer.h:19:0,
+                 from ../Student_Code/Archer.cpp:14:
+../Student_Code/Fighter.h:30:20: note:   in call to ‘virtual std::__cxx11::string Fighter::getName()’
+             string getName();
+                    ^
+Student_Code/subdir.mk:36: recipe for target 'Student_Code/Archer.o' failed
+make: *** [Student_Code/Archer.o] Error 1
+
+08:39:51 Build Finished (took 175ms)
+

@@ -1,0 +1,218 @@
+/*
+ * ExpresionManager.cpp
+ *
+ *  Created on: May 13, 2016
+ *      Author: jcovey
+ */
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <stack>
+#include <locale>
+#include <exception>
+#include <assert.h>
+#include <stdexcept>
+#include "ExpresionManger.h"
+
+
+using namespace std;
+/*
+* Checks whether an expression is balanced on its parentheses
+*
+* - The given expression will have a space between every number or operator
+*
+* @return true if expression is balanced
+* @return false otherwise
+*/
+
+bool ExpressionManager::isBalanced(string expression){
+	stack<char> stack;
+	bool balanced = true;
+	string::const_iterator iter = expression.begin();
+	while(balanced && (iter != expression.end())){
+		char next = *iter;
+		if (isOpen(next)){
+			stack.push(next);
+		}
+		else if (isClose(next)){
+			if (stack.empty())
+				balanced = false;
+			else {
+				char top = stack.top();
+				stack.pop();
+				balanced = isOpen(top) && compareBracketType(top,next);
+			}
+		}
+		iter++;
+	}
+
+	return balanced && stack.empty();
+}
+
+/**
+* Converts a postfix expression into an infix expression
+* and returns the infix expression.
+*
+* - The given postfix expression will have a space between every number or operator.
+* - The returned infix expression must have a space between every number or operator.
+* - Redundant parentheses are acceptable i.e. ( ( 3 * 4 ) + 5 ).
+* - Check lab requirements for what will be considered invalid.
+*
+* return the string "invalid" if postfixExpression is not a valid postfix expression.
+* otherwise, return the correct infix expression as a string.
+*/
+string ExpressionManager::postfixToInfix(string postfixExpression){
+	return "";
+}
+
+/*
+* Converts an infix expression into a postfix expression
+* and returns the postfix expression
+*
+* - The given infix expression will have a space between every number or operator.
+* - The returned postfix expression must have a space between every number or operator.
+* - Check lab requirements for what will be considered invalid.
+*
+* return the string "invalid" if infixExpression is not a valid infix expression.
+* otherwise, return the correct postfix expression as a string.
+*/
+string ExpressionManager::infixToPostfix(string infixExpression){
+	return "";
+}
+
+/*
+* Evaluates a postfix expression returns the result as a string
+*
+* - The given postfix expression will have a space between every number or operator.
+* - Check lab requirements for what will be considered invalid.
+*
+* return the string "invalid" if postfixExpression is not a valid postfix Expression
+* otherwise, return the correct evaluation as a string
+*/
+string ExpressionManager::postfixEvaluate(string postfixExpression){
+	stack<string> stack;
+	string::const_iterator iter = postfixExpression.begin();
+	istringstream tokens(postfixExpression);
+	if (testing)
+		cout << "Entering postfixEvaluate() token: " << tokens;
+	string next = "";
+	while(tokens >> next){
+		if (determineCharType(next) == "operand"){
+			if (testing)
+				cout << "Entering operand portion" << endl;
+			string operand = "";
+			tokens >> operand;
+			stack.push(operand);
+		}
+		else if(determineCharType(next) == "operator"){
+			if (testing)
+				cout << "Entering operator portion" << endl;
+			int result = 0;
+			assert(!stack.empty());
+			string right1 = stack.top();
+			int right = 0;
+			istringstream (right1) >> right;
+			stack.pop();
+			assert(!stack.empty());
+			string left1 = stack.top();
+			int left = 0;
+			istringstream (left1) >> right;
+
+			stack.pop();
+			switch(next[0]) {
+			case '+' : result = left + right;
+						break;
+			case '-' : result = left - right;
+						break;
+			case '*' : result = left * right;
+						break;
+			case '/' : result = left / right;
+						break;
+			case '%' : result = left % right;
+						break;
+			if (testing)
+				cout << "Exiting operator portion.\nResults: "<< result << endl;
+			}
+			assert(stack.empty());
+			string output;
+
+			ostringstream convert;
+
+			convert << result;
+
+			output = convert.str();
+
+			stack.push(output);
+		}
+		else if(determineCharType(next) == "bracket"){
+			if (testing)
+				cout << "Entering bracket bracket" << endl;
+// 			do nothing
+		}
+		else if(determineCharType(next) == "other"){
+			if (testing)
+				cout << "Entering other portion" << endl;
+//			throw syntax error
+		}
+
+	}
+	assert(!stack.empty());
+	string answer = stack.top();
+	stack.pop();
+	assert(stack.empty());
+	return answer;
+}
+
+bool ExpressionManager::isOpen(char bracket) {
+
+	for (int x = 0; x < 3; x++){
+		if (bracket == OPEN[x])
+			return true;
+	}
+	return false;
+}
+
+bool ExpressionManager::isClose(char bracket) {
+
+	for (int x = 0; x < 3; x++){
+		if (bracket == CLOSE[x])
+			return true;
+	}
+	return false;
+}
+
+bool ExpressionManager::compareBracketType (char open, char close){
+	int openBraketType = -1;
+	int closeBraketType = -2;
+
+	for (int x = 0; x < 3; x++){
+			if (open == OPEN[x])
+				openBraketType = x;
+		}
+	for (int x = 0; x < 3; x++){
+			if (close == CLOSE[x])
+				closeBraketType = x;
+		}
+
+	return openBraketType == closeBraketType;
+
+}
+
+string ExpressionManager::determineCharType (string input){
+	string charType = "";
+	if (isdigit(input[0]))
+		charType = "operand";
+	else if (isOpen(input[0]) || isClose(input[0]))
+		charType = "bracket";
+	else {
+		for (int x = 0; x < OPERATOR.length(); x++){
+			if (input[0] == OPERATOR[x])
+				charType = "operator";
+		}
+	if (charType == "")
+		charType = "other";
+	}
+	return charType;
+}
+

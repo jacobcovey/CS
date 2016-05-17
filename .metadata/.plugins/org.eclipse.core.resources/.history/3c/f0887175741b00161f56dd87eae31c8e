@@ -1,0 +1,51 @@
+//============================================================================
+// Name        : Lab3.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <string>
+#include <locale>
+#include "ExpressionManagerInterface.h"
+#include "ExpresionManger.h"
+
+using namespace std;
+
+bool isOpen(char bracket) {
+
+	for (int x = 0; x < 3; x++){
+		if (bracket == OPEN[x])
+			return true;
+	}
+	return false;
+}
+
+string determineCharType (char input){
+	string charType = "";
+	if (isdigit(input))
+		charType = "operand";
+	else if (input == OPEN || input == CLOSE)
+		charType = "bracket";
+	else if (input == OPERATOR)
+		charType = "operator";
+	else
+		charType = "other";
+
+	return charType;
+}
+
+int main() {
+
+	const string OPEN = "([{";
+	const string CLOSE = ")]}";
+	const string OPERATOR ="+-*/%";
+
+	ExpressionManager em;
+
+
+
+	return 0;
+}

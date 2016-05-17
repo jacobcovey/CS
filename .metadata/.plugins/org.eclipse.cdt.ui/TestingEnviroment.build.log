@@ -1,0 +1,160 @@
+08:39:52 **** Build of configuration Debug for project TestingEnviroment ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:6:0:
+../DNode.h:7:3: error: ‘Item_Type’ does not name a type
+   Item_Type data;
+   ^
+../DNode.h:12:15: error: ‘Item_Type’ does not name a type
+   DNode(const Item_Type& the_data, 
+               ^
+In file included from ../main.cpp:9:0:
+../list_iterator.h:7:16: error: ‘list’ is not a class template
+   friend class list<Item_Type>;
+                ^
+../list_iterator.h:7:21: error: ‘Item_Type’ was not declared in this scope
+   friend class list<Item_Type>;
+                     ^
+../list_iterator.h:11:3: error: ‘KW::list’ is not a template
+   list<Item_Type>* parent;
+   ^
+../list_iterator.h:11:8: error: ‘Item_Type’ was not declared in this scope
+   list<Item_Type>* parent;
+        ^
+../list_iterator.h:13:12: error: expected nested-name-specifier before ‘list’
+   typename list<Item_Type>::DNode* current;
+            ^
+../list_iterator.h:13:12: error: expected ‘;’ at end of member declaration
+../list_iterator.h:13:12: error: declaration of ‘int KW::list::iterator::list’ [-fpermissive]
+../main.cpp:4:13: error: changes meaning of ‘list’ from ‘class KW::list KW::list::list’ [-fpermissive]
+  class list {
+             ^
+In file included from ../main.cpp:9:0:
+subdir.mk:18: recipe for target 'main.o' failed
+../list_iterator.h:13:16: error: expected unqualified-id before ‘<’ token
+   typename list<Item_Type>::DNode* current;
+                ^
+../list_iterator.h:21:16: error: expected ‘)’ before ‘<’ token
+   iterator(list<Item_Type>* my_parent, DNode* position) :
+                ^
+../list_iterator.h:29:3: error: ‘Item_Type’ does not name a type
+   Item_Type& operator*() const {
+   ^
+../list_iterator.h:41:3: error: ‘Item_Type’ does not name a type
+   Item_Type* operator->() const {
+   ^
+In file included from ../main.cpp:13:0:
+../list_const_iterator.h:7:16: error: ‘list’ is not a class template
+   friend class list<Item_Type>;
+                ^
+../list_const_iterator.h:7:21: error: ‘Item_Type’ was not declared in this scope
+   friend class list<Item_Type>;
+                     ^
+../list_const_iterator.h:11:9: error: ‘KW::list’ is not a template
+   const list<Item_Type>* parent;
+         ^
+../list_const_iterator.h:11:14: error: ‘Item_Type’ was not declared in this scope
+   const list<Item_Type>* parent;
+              ^
+../list_const_iterator.h:13:12: error: expected nested-name-specifier before ‘list’
+   typename list<Item_Type>::DNode* current;
+            ^
+../list_const_iterator.h:13:12: error: expected ‘;’ at end of member declaration
+../list_const_iterator.h:13:12: error: declaration of ‘int KW::list::const_iterator::list’ [-fpermissive]
+../main.cpp:4:13: error: changes meaning of ‘list’ from ‘class KW::list KW::list::list’ [-fpermissive]
+  class list {
+             ^
+In file included from ../main.cpp:13:0:
+../list_const_iterator.h:13:16: error: expected unqualified-id before ‘<’ token
+   typename list<Item_Type>::DNode* current;
+                ^
+../list_const_iterator.h:22:24: error: ‘list’ does not name a type
+   const_iterator(const list<Item_Type>* my_parent, DNode* position) :
+                        ^
+../list_const_iterator.h:22:28: error: expected ‘,’ or ‘...’ before ‘<’ token
+   const_iterator(const list<Item_Type>* my_parent, DNode* position) :
+                            ^
+../list_const_iterator.h:37:7: error: ‘Item_Type’ does not name a type
+ const Item_Type& operator*() const {
+       ^
+../list_const_iterator.h:51:7: error: ‘Item_Type’ does not name a type
+ const Item_Type* operator->() const {
+       ^
+In file included from ../main.cpp:6:0:
+../DNode.h: In constructor ‘KW::list::DNode::DNode(const int&, KW::list::DNode*, KW::list::DNode*)’:
+../DNode.h:14:5: error: class ‘KW::list::DNode’ does not have any field named ‘data’
+     data(the_data), next(next_val), prev(prev_val) {}
+     ^
+In file included from ../main.cpp:9:0:
+../list_iterator.h: In member function ‘KW::list::iterator& KW::list::iterator::operator++()’:
+../list_iterator.h:53:9: error: ‘current’ was not declared in this scope
+     if (current == NULL) 
+         ^
+../list_iterator.h:55:5: error: ‘current’ was not declared in this scope
+     current = current->next;
+     ^
+../list_iterator.h: In member function ‘KW::list::iterator& KW::list::iterator::operator--()’:
+../list_iterator.h:65:9: error: ‘current’ was not declared in this scope
+     if (current == parent->head)
+         ^
+../list_iterator.h:65:28: error: ‘class KW::list’ has no member named ‘head’
+     if (current == parent->head)
+                            ^
+../list_iterator.h:67:9: error: ‘current’ was not declared in this scope
+     if (current == NULL)   // Past last element.
+         ^
+../list_iterator.h: In member function ‘bool KW::list::iterator::operator==(const KW::list::iterator&)’:
+../list_iterator.h:102:12: error: ‘current’ was not declared in this scope
+     return current == other.current;
+            ^
+../list_iterator.h:102:29: error: ‘const class KW::list::iterator’ has no member named ‘current’
+     return current == other.current;
+                             ^
+In file included from ../main.cpp:13:0:
+../list_const_iterator.h: In constructor ‘KW::list::const_iterator::const_iterator(int)’:
+../list_const_iterator.h:23:12: error: ‘my_parent’ was not declared in this scope
+     parent(my_parent), current(position) {}
+            ^
+../list_const_iterator.h:23:24: error: class ‘KW::list::const_iterator’ does not have any field named ‘current’
+     parent(my_parent), current(position) {}
+                        ^
+../list_const_iterator.h:23:32: error: ‘position’ was not declared in this scope
+     parent(my_parent), current(position) {}
+                                ^
+../list_const_iterator.h: In copy constructor ‘KW::list::const_iterator::const_iterator(const KW::list::const_iterator&)’:
+../list_const_iterator.h:30:27: error: class ‘KW::list::const_iterator’ does not have any field named ‘current’
+     parent(other.parent), current(other.current) {}
+                           ^
+../list_const_iterator.h:30:41: error: ‘const class KW::list::const_iterator’ has no member named ‘current’
+     parent(other.parent), current(other.current) {}
+                                         ^
+../list_const_iterator.h: In member function ‘KW::list::const_iterator& KW::list::const_iterator::operator++()’:
+../list_const_iterator.h:64:9: error: ‘current’ was not declared in this scope
+     if (current == NULL) 
+         ^
+../list_const_iterator.h:66:5: error: ‘current’ was not declared in this scope
+     current = current->next;
+     ^
+../list_const_iterator.h: In member function ‘KW::list::const_iterator& KW::list::const_iterator::operator--()’:
+../list_const_iterator.h:76:9: error: ‘current’ was not declared in this scope
+     if (current == parent->head)
+         ^
+../list_const_iterator.h:76:28: error: ‘const class KW::list’ has no member named ‘head’
+     if (current == parent->head)
+                            ^
+../list_const_iterator.h:78:9: error: ‘current’ was not declared in this scope
+     if (current == NULL) 
+         ^
+../list_const_iterator.h: In member function ‘bool KW::list::const_iterator::operator==(const KW::list::const_iterator&)’:
+../list_const_iterator.h:110:12: error: ‘current’ was not declared in this scope
+     return current == other.current;
+            ^
+../list_const_iterator.h:110:29: error: ‘const class KW::list::const_iterator’ has no member named ‘current’
+     return current == other.current;
+                             ^
+make: *** [main.o] Error 1
+
+08:39:52 Build Finished (took 219ms)
+

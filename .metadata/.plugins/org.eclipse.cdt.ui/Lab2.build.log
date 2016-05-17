@@ -1,0 +1,12 @@
+08:39:50 **** Build of configuration Debug for project Lab2 ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp:2:33: fatal error: LinkedListInterface.h: No such file or directory
+subdir.mk:18: recipe for target 'main.o' failed
+compilation terminated.
+make: *** [main.o] Error 1
+
+08:39:50 Build Finished (took 189ms)
+

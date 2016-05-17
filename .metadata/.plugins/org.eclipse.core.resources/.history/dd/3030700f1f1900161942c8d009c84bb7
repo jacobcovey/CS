@@ -1,0 +1,42 @@
+//============================================================================
+// Name        : Lab3.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <string>
+#include "ExpressionManagerInterface.h"
+#include "ExpresionManger.h"
+
+using namespace std;
+
+bool isOpen(string bracket) {
+
+	for (int x = 0; x < 3; x++){
+		if (bracket == OPEN[x])
+			return true;
+	}
+	return false;
+}
+
+
+int main() {
+
+	const string OPEN = "([{";
+	const string CLOSE = ")]}";
+
+	ExpressionManager em;
+
+	cout << isOpen("(") << endl;
+	cout << isOpen("[") << endl;
+	cout << isOpen("{") << endl;
+	cout << isOpen("b") << endl;
+	cout << isOpen(")") << endl;
+	cout << isOpen("]") << endl;
+	cout << isOpen("}") << endl;
+
+	return 0;
+}
