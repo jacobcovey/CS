@@ -1,4 +1,4 @@
-08:39:52 **** Build of configuration Debug for project TestingEnviroment ****
+08:47:21 **** Incremental Build of configuration Debug for project TestingEnviroment ****
 make all 
 Building file: ../main.cpp
 Invoking: GCC C++ Compiler
@@ -30,9 +30,9 @@ In file included from ../main.cpp:9:0:
 ../list_iterator.h:13:12: error: declaration of ‘int KW::list::iterator::list’ [-fpermissive]
 ../main.cpp:4:13: error: changes meaning of ‘list’ from ‘class KW::list KW::list::list’ [-fpermissive]
   class list {
+subdir.mk:18: recipe for target 'main.o' failed
              ^
 In file included from ../main.cpp:9:0:
-subdir.mk:18: recipe for target 'main.o' failed
 ../list_iterator.h:13:16: error: expected unqualified-id before ‘<’ token
    typename list<Item_Type>::DNode* current;
                 ^
@@ -156,5 +156,5 @@ In file included from ../main.cpp:13:0:
                              ^
 make: *** [main.o] Error 1
 
-08:39:52 Build Finished (took 219ms)
+08:47:21 Build Finished (took 164ms)
 

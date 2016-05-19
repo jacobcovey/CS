@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <locale>
+#include <exception>
+#include <assert.h>
+#include <stdexcept>
+#include "Stack.h"
+
+
+using namespace std;
+
+void Stack::push(int);
+bool Stack::empty();
+void Stack::pop();
+int Stack::top();
+int Stack::size(){
+	return 0;
+}

@@ -63,9 +63,58 @@ bool ExpressionManager::isBalanced(string expression){
 * otherwise, return the correct infix expression as a string.
 */
 string ExpressionManager::postfixToInfix(string postfixExpression){
-	return "";
-}
+	stack<string> stack;
+		istringstream tokens(postfixExpression);
+		if (testing)
+			cout << "Entering postfixEvaluate() token: " << endl;
+		string next = "";
+		while(tokens >> next){
+			if (determineCharType(next) == "operand"){
+				if (testing)
+					cout << "Entering operand portion" << endl;
+				stack.push(next);
+			}
+			else if(determineCharType(next) == "operator"){
+				if (testing)
+					cout << "Entering operator portion" << endl;
+				string result = "";
+				if(stack.empty())
+					return "invalid";
+				string right = stack.top();
+				if(checkIfDecimel(right))
+					return "invalid";
+				stack.pop();
+				if(stack.empty())
+					return "invalid";
+				string left = stack.top();
+				if(checkIfDecimel(left))
+					return "invalid";
+				result = "( " + left + " " + next + " " + right + " )";
 
+				stack.pop();
+
+				stack.push(result);
+			}
+			else if(determineCharType(next) == "bracket"){
+				if (testing)
+					cout << "Entering bracket bracket" << endl;
+				return "invalid";
+			}
+			else if(determineCharType(next) == "other"){
+				if (testing)
+					cout << "Entering other portion" << endl;
+				return "invalid";
+			}
+
+		}
+		if(stack.empty())
+			return "invalid";
+		string answer = stack.top();
+		stack.pop();
+		if (!stack.empty())
+			return "invalid";
+		return answer;
+	}
 /*
 * Converts an infix expression into a postfix expression
 * and returns the postfix expression
@@ -78,7 +127,72 @@ string ExpressionManager::postfixToInfix(string postfixExpression){
 * otherwise, return the correct postfix expression as a string.
 */
 string ExpressionManager::infixToPostfix(string infixExpression){
-	return "";
+	if (!isBalanced(infixExpression))
+		return "invalid";
+	if (!checkFormat(infixExpression))
+		return "invalid";
+	string output = "";
+	stack<string> stack;
+		istringstream tokens(infixExpression);
+		if (testing)
+			cout << "Entering postfixEvaluate() token: " << endl;
+		string next = "";
+		while(tokens >> next){
+			bool emptyStack = stack.empty();
+			if (determineCharType(next) == "operand"){
+//				if (testing)
+//					cout << "Entering operand portion" << endl;
+				output += (next + " ");
+			}
+			else if(determineCharType(next) == "operator" || determineCharType(next) == "bracket"){
+				int operatorPriority = determinePriority(next);
+				if (stack.empty())
+					int stackOperatorPriority = 0;
+				else
+					int stackOperatorPriority = determinePriority(stack.top());
+//				if (testing)
+//					cout << "Entering operator portion. Priority Level: " << operatorPriority << endl;
+				if(operatorPriority == 0){
+					stack.push(next);
+				}
+				else if(operatorPriority == 1 || operatorPriority == 2){
+					if (emptyStack || operatorPriority > determinePriority(stack.top()))
+						stack.push(next);
+					else if (operatorPriority <= determinePriority(stack.top())) {
+						while (!stack.empty() && operatorPriority <= determinePriority(stack.top())) {
+							string temp = stack.top();
+							output += (temp + " ");
+							stack.pop();
+						}
+						stack.push(next);
+					}
+
+				}
+				else if(operatorPriority == 3){
+					while (!compareBracketType(stack.top()[0],next[0]) && !stack.empty()){
+						string temp = stack.top();
+						output += (temp + " ");
+						stack.pop();
+					}
+					if (compareBracketType(stack.top()[0],next[0])){
+						stack.pop();
+					}
+				}
+			}
+			else if(determineCharType(next) == "other"){
+				if (testing)
+					cout << "Entering other portion" << endl;
+				return "invalid";
+			}
+			if (testing)
+				cout << "Output: " << output << endl;
+		}
+		while(!stack.empty()){
+			string temp = stack.top();
+			output += (temp + " ");
+			stack.pop();
+		}
+		return output;
 }
 
 /*
@@ -92,7 +206,6 @@ string ExpressionManager::infixToPostfix(string infixExpression){
 */
 string ExpressionManager::postfixEvaluate(string postfixExpression){
 	stack<string> stack;
-	string::const_iterator iter = postfixExpression.begin();
 	istringstream tokens(postfixExpression);
 	if (testing)
 		cout << "Entering postfixEvaluate() token: " << endl;
@@ -220,4 +333,82 @@ string ExpressionManager::determineCharType (string input){
 	}
 	return charType;
 }
+
+bool ExpressionManager::checkIfDecimel (string input){
+	for (int x = 0; x < input.length(); x++){
+		if (input[x] == '.')
+			return true;
+	}
+		return false;
+}
+
+int  ExpressionManager::determinePriority (string input){
+	int priority = -1;
+	for (int x = 0; x < WILD.length(); x++){
+				if (input[0] == WILD[x])
+					priority = 0;
+			}
+	for (int x = 0; x < LOW.length(); x++){
+				if (input[0] == LOW[x])
+					priority = 1;
+			}
+	for (int x = 0; x < HIGH.length(); x++){
+				if (input[0] == HIGH[x])
+					priority = 2;
+			}
+	for (int x = 0; x < IMMEDIATE.length(); x++){
+				if (input[0] == IMMEDIATE[x])
+					priority = 3;
+			}
+	return priority;
+}
+bool ExpressionManager::checkFormat (string input){
+	vector<int> vec;
+	bool valid = true;
+	istringstream tokens(input);
+	string next = "";
+	if (input.size() == 1){
+		if (determineCharType(input) != "operand" )
+			valid = false;
+	}
+	while(valid && (tokens >> next)){
+		if (determineCharType(next) == "operand"){
+			if(checkIfDecimel(next))
+				valid = false;
+			vec.push_back(1);
+		}
+		else if(determineCharType(next) == "operator"){
+			vec.push_back(2);
+		}
+		else if(determineCharType(next) == "bracket"){
+			vec.push_back(3);
+		}
+		else if(determineCharType(next) == "other"){
+			valid = false;
+		}
+	}
+
+	for (int x = 0; x < vec.size(); x++){
+		bool pass = false;
+		if (vec[x] == 2){
+			if (vec[x +1] == 2 || vec[x - 1] == 2){
+				valid = false;
+			}
+			else if (vec[x + 1] == 3){
+				for (int y = x + 2; y < vec.size(); y++ ){
+					if (!pass){
+						if (vec[y] == 2){
+							pass = true;
+							valid = false;
+						}
+						else if (vec[y] == 1)
+							pass = true;
+					}
+				}
+			}
+		}
+
+	}
+		return valid;
+	}
 

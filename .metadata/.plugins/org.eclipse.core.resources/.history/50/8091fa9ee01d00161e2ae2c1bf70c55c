@@ -1,0 +1,18 @@
+#pragma once
+#include "LinkedList.h"
+class Stack
+{
+public:
+	Stack () : size(0), testing(true) {}
+	 ~Stack() {}
+
+	 void push(int);
+	 bool empty();
+	 void pop();
+	 int top();
+	 int size();
+
+protected:
+	 int size;
+	 bool testing;
+};

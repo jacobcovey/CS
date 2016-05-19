@@ -1,28 +1,6 @@
-10:27:17 **** Incremental Build of configuration Debug for project Lab3 ****
+08:47:20 **** Incremental Build of configuration Debug for project Lab3 ****
 make all 
-Building file: ../src/ExpresionManager.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ExpresionManager.d" -MT"src/ExpresionManager.d" -o "src/ExpresionManager.o" "../src/ExpresionManager.cpp"
-../src/ExpresionManager.cpp: In member function ‘std::__cxx11::string ExpressionManager::determineCharType(std::__cxx11::string)’:
-../src/ExpresionManager.cpp:211:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-   for (int x = 0; x < OPERATOR.length(); x++){
-                     ^
-Finished building: ../src/ExpresionManager.cpp
- 
-Building file: ../src/Lab3.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab3.d" -MT"src/Lab3.d" -o "src/Lab3.o" "../src/Lab3.cpp"
-../src/Lab3.cpp: In function ‘std::__cxx11::string determineCharType(char)’:
-../src/Lab3.cpp:40:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-   for (int x = 0; x < OPERATOR.length(); x++){
-                     ^
-Finished building: ../src/Lab3.cpp
- 
-Building target: Lab3
-Invoking: GCC C++ Linker
-g++  -o "Lab3"  ./src/ExpresionManager.o ./src/Factory.o ./src/Lab3.o   
-Finished building target: Lab3
- 
+make: Nothing to be done for 'all'.
 
-10:27:18 Build Finished (took 610ms)
+08:47:21 Build Finished (took 73ms)
 

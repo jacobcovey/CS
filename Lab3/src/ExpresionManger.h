@@ -17,6 +17,10 @@ using namespace std;
 const string OPEN = "([{";
 const string CLOSE = ")]}";
 const string OPERATOR ="+-*/%";
+const string IMMEDIATE =")]}";
+const string HIGH ="*/%";
+const string LOW ="+-";
+const string WILD ="([{";
 
 class ExpressionManager : public ExpressionManagerInterface {
 public:
@@ -78,6 +82,14 @@ bool isClose(char bracket);
 bool compareBracketType (char open, char close);
 
 string determineCharType (string input);
+
+bool checkIfDecimel (string input);
+
+bool checkFormat (string input);
+
+int determinePriority (string input);
+
+
 
 protected:
 

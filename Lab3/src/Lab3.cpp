@@ -52,6 +52,10 @@ int main() {
 	const string OPEN = "([{";
 	const string CLOSE = ")]}";
 	const string OPERATOR ="+-*/%";
+	const string IMMEDIATE =")]}";
+	const string HIGH ="*/%";
+	const string LOW ="+-";
+	const string WILD ="([{";
 
 	ExpressionManager em;
 
@@ -61,13 +65,20 @@ int main() {
 //	cout << determineCharType('*')<< endl;
 //	cout << determineCharType('+')<< endl;
 //	cout << determineCharType('$')<< endl;
+//
+//	cout << em.postfixEvaluate("4 5 + 6 0 * /") << endl;
+//	cout << em.postfixEvaluate("4 7 *") << endl;
+//	cout << em.postfixEvaluate("3 4 7 * 2 / +") << endl;
+//	cout << em.postfixEvaluate("40 2 4 + 1 1 + - * 4 2 / 1 / - 7 %") << endl;
+//	cout << em.postfixEvaluate("+ 3 4 +") << endl;
+//	cout << em.postfixEvaluate("4 5 2 + * 2 /") << endl;
+//	cout << em.infixToPostfix("4 * 7") << endl;
+//	cout << em.infixToPostfix("1 + ( 2 * 3 - 1 ) - 2") << endl;
+//	cout << em.infixToPostfix("-") << endl;
+	cout << em.infixToPostfix("40 * ( 2 + 4 - ( 2 + 2 ) ) - 4 / 5 / 6") << endl;
+	cout << em.infixToPostfix("( ( 3 + 4 ) * ( 3 - 2 ) - ( 2 / 2 ) ) + 24 / 3") << endl;
+//	cout << em.infixToPostfix("(4 * 7) - 20") << endl;
 
-	cout << em.postfixEvaluate("4 5 + 6 0 * /") << endl;
-	cout << em.postfixEvaluate("4 7 *") << endl;
-	cout << em.postfixEvaluate("3 4 7 * 2 / +") << endl;
-	cout << em.postfixEvaluate("40 2 4 + 1 1 + - * 4 2 / 1 / - 7 %") << endl;
-	cout << em.postfixEvaluate("+ 3 4 +") << endl;
-	cout << em.postfixEvaluate("4 5 2 + * 2 /") << endl;
 
 
 	return 0;

@@ -1,0 +1,26 @@
+//============================================================================
+// Name        : Lab_4.cpp
+// Author      : Jacob Covey
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "StationInterface.h"
+#include "Factory.h"
+#include "Station.h"
+using namespace std;
+
+int main() {
+	bool quite = false;
+	Station st;
+
+	while (!quite){
+		cout << "1. Add a car to the station\n2. Remove a car from the station\n";
+		cout << "3. Add a car from the station to a storage facility\n4. Remove car from a storage facility and add it to the station\n";
+		cout << "4. Display the cars currently accessible in the station and storage facilities\n6. Quit" << endl;
+	}
+
+	return 0;
+}

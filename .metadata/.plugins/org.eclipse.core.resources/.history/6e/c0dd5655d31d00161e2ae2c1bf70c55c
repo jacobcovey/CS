@@ -1,0 +1,17 @@
+//============================================================================
+// Name        : Lab_4.cpp
+// Author      : Jacob Covey
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "StationInterface.h"
+#include "Factory.h"
+using namespace std;
+
+int main() {
+	cout << "Welcome" << endl; // prints Welcome
+	return 0;
+}

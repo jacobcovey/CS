@@ -1,0 +1,50 @@
+//============================================================================
+// Name        : Lab_4.cpp
+// Author      : Jacob Covey
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "StationInterface.h"
+#include "Factory.h"
+#include "Station.h"
+using namespace std;
+
+int main() {
+	bool quite = false;
+	int response = 0;
+	Station st;
+
+	while (!quite){
+		cout << "1. Add a car to the station\n2. Remove a car from the station\n";
+		cout << "3. Add a car from the station to a storage facility\n4. Remove car from a storage facility and add it to the station\n";
+		cout << "4. Display the cars currently accessible in the station and storage facilities\n6. Quit" << endl;
+		cin >> response;
+		 if (cin.fail()) {
+			cin.clear();
+			cout << "1ERROR: Invalid response" << endl;
+		 }
+		 else{
+			switch(response){
+			case 1 :
+					break;
+			case 2 :
+					break;
+			case 3 :
+					break;
+			case 4 :
+					break;
+			case 5 :
+					break;
+			case 6 : quite = true;
+					break;
+			default: cout << "ERROR: Invalid response" << endl;
+					break;
+			}
+		}
+	}
+
+	return 0;
+}
