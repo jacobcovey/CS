@@ -19735,3 +19735,156 @@ make: Nothing to be done for 'all'.
 17:27:55 **** Incremental Build of configuration Debug for project Lab_4 ****
 make all 
 make: Nothing to be done for 'all'.
+08:57:36 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Deque.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Deque.d" -MT"src/Deque.d" -o "src/Deque.o" "../src/Deque.cpp"
+../src/Deque.cpp:8:19: fatal error: deque.h: No such file or directory
+src/subdir.mk:33: recipe for target 'src/Deque.o' failed
+compilation terminated.
+make: *** [src/Deque.o] Error 1
+08:57:57 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Deque.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Deque.d" -MT"src/Deque.d" -o "src/Deque.o" "../src/Deque.cpp"
+../src/Deque.cpp:8:19: fatal error: deque.h: No such file or directory
+compilation terminated.
+src/subdir.mk:33: recipe for target 'src/Deque.o' failed
+make: *** [src/Deque.o] Error 1
+08:59:08 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Deque.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Deque.d" -MT"src/Deque.d" -o "src/Deque.o" "../src/Deque.cpp"
+../src/Deque.cpp: In member function ‘int Deque::popRight()’:
+../src/Deque.cpp:63:25: error: ‘Right’ was not declared in this scope
+  int RightValue = Right();
+                         ^
+src/subdir.mk:33: recipe for target 'src/Deque.o' failed
+make: *** [src/Deque.o] Error 1
+08:59:23 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Deque.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Deque.d" -MT"src/Deque.d" -o "src/Deque.o" "../src/Deque.cpp"
+Finished building: ../src/Deque.cpp
+ 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+Finished building: ../src/Queue.cpp
+ 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+Finished building: ../src/Station.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:86:55: error: expected ‘)’ before ‘{’ token
+     else if (idToBeRemoved == st.showTopOfDequeLeft() {
+                                                       ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+src/subdir.mk:33: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+09:00:42 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:74:10: warning: variable ‘matched’ set but not used [-Wunused-but-set-variable]
+     bool matched = false;
+          ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Deque.o ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+09:06:18 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:74:10: warning: variable ‘matched’ set but not used [-Wunused-but-set-variable]
+     bool matched = false;
+          ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Deque.o ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+09:15:59 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:75:11: warning: variable ‘matched’ set but not used [-Wunused-but-set-variable]
+      bool matched = false;
+           ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Deque.o ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+09:25:23 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:86:11: warning: variable ‘matched’ set but not used [-Wunused-but-set-variable]
+      bool matched = false;
+           ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Deque.o ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+09:27:01 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:91:11: warning: variable ‘matched’ set but not used [-Wunused-but-set-variable]
+      bool matched = false;
+           ^
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Deque.o ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 

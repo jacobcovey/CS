@@ -15,6 +15,7 @@ using namespace std;
 
 int main() {
 	bool testing = true;
+	bool prompt = true;
 	bool quite = false;
 	int response = 0;
 	string structureType = "";
@@ -33,6 +34,8 @@ int main() {
 		switch(response){
 			case 1 : {
 					int carToAdd = -1;
+					if (prompt)
+						cout << "Enter car ID to be added to station." << endl;
 					cin >> carToAdd;
 					if (cin.fail()) {
 						cin.clear();
@@ -47,9 +50,17 @@ int main() {
 						}
 					}
 					break;
-			case 2 : st.removeFromStation();
+			case 2 :{
+				if (st.showCurrentCar() != -1)
+					st.removeFromStation();
+				else
+					cout << "ERROR: There is no car in the station." << endl;
+			}
 					break;
 			case 3 : {
+				if (st.showCurrentCar() != -1){
+					if (prompt)
+						cout << "Enter the structure to send the car to (stack, queue or deque)." << endl;
 				 	 cin >> structureType;
 				 	 if (structureType == "stack")
 				 			st.addToStack();
@@ -57,31 +68,64 @@ int main() {
 				 			 st.addToQueue();
 				 		 }
 				 		else if (structureType == "deque"){
-
+				 			string area = "";
+							if (prompt)
+								cout << "Enter which end you would like to add the car to (left or right)." << endl;
+				 			cin >> area;
+				 			if (area == "left")
+				 				st.addToDequeLeft();
+				 			else if(area == "right")
+				 				st.addToDequeRight();
+				 			else
+				 				cout << "ERROR: Invalid response of whether to add to left or right of the deque." << endl;
 				 		}
 				 		else
 				 			cout << "ERROR: Inputed structure type was not recognized. Don't use capital letters." << endl;
+				}
+				else
+					cout << "ERROR: The station is empty." << endl;
 				 	 }
 					break;
 			case 4 :{
-				cin >> structureType;
-				 if (structureType == "stack")
-						st.removeFromStack();
-					 else if (structureType == "queue") {
-						 st.removeFromQueue();
-					 }
-					else if (structureType == "deque"){
+				if (st.showCurrentCar() == -1){
+					bool matched = false;
+					int idToBeRemoved = 0;
+					if (prompt)
+						cout << "Enter the id of car you would like to remove." << endl;
+					cin >> idToBeRemoved;
 
+					if (idToBeRemoved == st.showTopOfStack()) {
+						st.removeFromStack();
+						matched = true;
+					}
+					else if (idToBeRemoved == st.showTopOfQueue()) {
+						st.removeFromQueue();
+						matched = true;
+					}
+					else if (idToBeRemoved == st.showTopOfDequeLeft()) {
+						st.removeFromDequeLeft();
+						matched = true;
+					}
+					else if (idToBeRemoved == st.showTopOfDequeRight()) {
+						st.removeFromDequeRight();
+						matched = true;
 					}
 					else
-						cout << "ERROR: Inputed structure type was not recognized. Don't use capital letters." << endl;
+						cout << "ERROR: Id is either non-existant or non-accesable." << endl;
+				}
+				else
+					cout << "ERROR: There is already a car in the station." << endl;
 			}
 					break;
 			case 5 :
 					cout << "Stack Top: " << st.showTopOfStack() << " Stack Size: "<< st.showSizeOfStack() <<endl;
 					cout << "Queue Top: " << st.showTopOfQueue() << " Queue Size: "<< st.showSizeOfQueue() <<endl;
+					cout << "Deque L,R: " << st.showTopOfDequeLeft() << "," << st.showTopOfDequeRight() << " Deuqe Size: "<< st.showSizeOfDeque() << endl;
 					break;
-			case 6 : quite = true;
+			case 6 : {
+				cout << "Choo choo ciao!" << endl;
+				quite = true;
+			}
 					break;
 			default: cout << "ERROR: Invalid response" << endl;
 					break;

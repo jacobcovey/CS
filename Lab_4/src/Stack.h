@@ -14,6 +14,7 @@ public:
 	 int pop();
 	 int top();
 	 int size();
+	 bool exist(int id);
 
 protected:
 	 int stackSize;

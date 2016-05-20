@@ -49,3 +49,8 @@ int Stack::top(){
 int Stack::size(){
 	return stackSize;
 }
+bool Stack::exist(int id){
+	if (ll.find(id) == -1)
+		return true;
+	return false;
+}

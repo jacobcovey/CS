@@ -14,7 +14,7 @@ public:
 	 bool empty();
 	 int popLeft();
 	 int popRight();
-	 int Right();
+	 int right();
 	 int left();
 	 int size();
 

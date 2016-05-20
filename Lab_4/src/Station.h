@@ -1,6 +1,7 @@
 #include "StationInterface.h"
 #include "Stack.h"
 #include "Queue.h"
+#include "Deque.h"
 #pragma once
 
 class Station : public StationInterface
@@ -159,4 +160,5 @@ protected:
 	 int id;
 	 Stack st;
 	 Queue qu;
+	 Deque dq;
 };

@@ -166,8 +166,15 @@ using namespace std;
 	 * @return true if the car is successfully added to the deque; false otherwise
 	 */
 	 bool Station::addToDequeLeft(){
-		 return false;
-	 }
+		 if (!occupied)
+			 return false;
+		if (dq.pushLeft(id)){
+			removeFromStation();
+			return true;
+		}
+		else
+			return false;
+}
 
 	/**
 	 * Adds the current car to the deque on the right side.  After this operation, there should be no current car.
@@ -176,7 +183,14 @@ using namespace std;
 	 * @return true if the car is successfully added to the deque; false otherwise
 	 */
 	 bool Station::addToDequeRight(){
-		 return false;
+		 if (!occupied)
+			 return false;
+		if (dq.pushRight(id)){
+			removeFromStation();
+			return true;
+		}
+		else
+			return false;
 	 }
 
 	/**
@@ -186,7 +200,12 @@ using namespace std;
 	 * @return true if the car is successfully removed from the deque; false otherwise
 	 */
 	 bool Station::removeFromDequeLeft(){
-		 return false;
+		 int carToAdd = dq.popLeft();
+			 if (occupied || carToAdd == -1)
+				 return false;
+			 id = carToAdd;
+			 occupied = true;
+			return true;
 	 }
 
 	/**
@@ -196,7 +215,12 @@ using namespace std;
 	 * @return true if the car is successfully removed from the deque; false otherwise
 	 */
 	 bool Station::removeFromDequeRight(){
-		 return false;
+		 int carToAdd = dq.popRight();
+			 if (occupied || carToAdd == -1)
+				 return false;
+			 id = carToAdd;
+			 occupied = true;
+			return true;
 	 }
 
 	/**
@@ -205,7 +229,7 @@ using namespace std;
 	 * @return the ID of the leftmost car in the deque; -1 if the deque is empty
 	 */
 	 int Station::showTopOfDequeLeft(){
-		 return 0;
+		 return dq.left();
 	 }
 
 	/**
@@ -214,7 +238,7 @@ using namespace std;
 	 * @return the ID of the rightmost car in the deque; -1 if the deque is empty
 	 */
 	 int Station::showTopOfDequeRight(){
-		 return 0;
+		 return dq.right();
 	 }
 
 	/**
@@ -223,5 +247,5 @@ using namespace std;
 	 * @return the number of cars in the deque
 	 */
 	 int Station::showSizeOfDeque(){
-		 return 0;
+		 return dq.size();
 	 }

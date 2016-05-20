@@ -5,7 +5,7 @@
 #include <exception>
 #include <assert.h>
 #include <stdexcept>
-#include "deque.h"
+#include "Deque.h"
 
 
 using namespace std;
@@ -60,7 +60,7 @@ int Deque::popRight(){
 			cout << "ERROR: Deque is already empty";
 		return -1;
 	}
-	int RightValue = Right();
+	int RightValue = right();
 	ll.remove(RightValue);
 	dequeSize--;
 	if (testing)
@@ -73,7 +73,7 @@ int Deque::left(){
 		return -1;
 	return ll.at(0);
 }
-int Deque::Right(){
+int Deque::right(){
 	if (dequeSize == 0)
 		return -1;
 	return ll.at(dequeSize - 1);
