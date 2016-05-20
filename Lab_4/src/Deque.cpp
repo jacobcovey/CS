@@ -82,3 +82,8 @@ int Deque::right(){
 int Deque::size(){
 	return dequeSize;
 }
+bool Deque::exist(int id){
+	if (ll.find(id) == -1)
+		return true;
+	return false;
+}

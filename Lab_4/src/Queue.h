@@ -14,6 +14,7 @@ public:
 	 int pop();
 	 int front();
 	 int size();
+	 bool exist(int id);
 
 protected:
 	 int queueSize;

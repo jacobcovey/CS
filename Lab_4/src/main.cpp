@@ -33,6 +33,8 @@ int main() {
 		 }
 		switch(response){
 			case 1 : {
+					bool pass = true;
+
 					int carToAdd = -1;
 					if (prompt)
 						cout << "Enter car ID to be added to station." << endl;

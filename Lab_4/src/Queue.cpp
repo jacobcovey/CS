@@ -49,3 +49,8 @@ int Queue::front(){
 int Queue::size(){
 	return queueSize;
 }
+bool Queue::exist(int id){
+	if (ll.find(id) == -1)
+		return true;
+	return false;
+}

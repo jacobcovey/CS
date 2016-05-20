@@ -17,6 +17,7 @@ public:
 	 int right();
 	 int left();
 	 int size();
+	 bool exist(int id);
 
 protected:
 	 int dequeSize;
