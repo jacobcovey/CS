@@ -19557,3 +19557,181 @@ Invoking: GCC C++ Linker
 g++  -o "Lab_4"  ./src/Factory.o ./src/Stack.o ./src/Station.o ./src/main.o   
 Finished building target: Lab_4
  
+17:09:42 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+../src/Queue.cpp: In member function ‘bool Queue::push(int)’:
+../src/Queue.cpp:22:46: error: ‘top’ was not declared in this scope
+    cout << "Car added to stack. ID: " << top() << endl;
+                                              ^
+../src/Queue.cpp: In member function ‘int Queue::pop()’:
+../src/Queue.cpp:41:45: error: ‘topValue’ was not declared in this scope
+   cout << "Car removed from stack. ID: " << topValue << endl;
+                                             ^
+src/subdir.mk:30: recipe for target 'src/Queue.o' failed
+make: *** [src/Queue.o] Error 1
+17:10:12 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+Finished building: ../src/Queue.cpp
+ 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+In file included from ../src/Station.cpp:8:0:
+../src/Station.h:160:3: error: ‘Queue’ does not name a type
+   Queue qu;
+   ^
+../src/Station.h: In constructor ‘Station::Station()’:
+../src/Station.h:8:61: error: class ‘Station’ does not have any field named ‘qu’
+  Station () : testing(true), occupied(false) ,id(-1), st(), qu() {}
+                                                             ^
+../src/Station.cpp: In member function ‘virtual bool Station::addToQueue()’:
+../src/Station.cpp:120:7: error: ‘qu’ was not declared in this scope
+   if (qu.push(id)){
+       ^
+../src/Station.cpp:126:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+src/subdir.mk:30: recipe for target 'src/Station.o' failed
+make: *** [src/Station.o] Error 1
+17:10:44 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+In file included from ../src/Station.h:3:0,
+                 from ../src/Station.cpp:8:
+../src/Queue.h:4:11: error: redefinition of ‘const int SIZELIMIT’
+ const int SIZELIMIT = 5;
+           ^
+In file included from ../src/Station.h:2:0,
+                 from ../src/Station.cpp:8:
+../src/Stack.h:4:11: note: ‘const int SIZELIMIT’ previously defined here
+ const int SIZELIMIT = 5;
+           ^
+src/subdir.mk:30: recipe for target 'src/Station.o' failed
+make: *** [src/Station.o] Error 1
+17:11:24 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+../src/Queue.cpp: In member function ‘bool Queue::push(int)’:
+../src/Queue.cpp:14:19: error: ‘SIZELIMIT’ was not declared in this scope
+  if (queueSize >= SIZELIMIT){
+                   ^
+../src/Queue.cpp:25:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/Queue.o] Error 1
+src/subdir.mk:30: recipe for target 'src/Queue.o' failed
+17:12:07 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+Finished building: ../src/Queue.cpp
+ 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+Finished building: ../src/Station.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+17:12:43 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+17:17:43 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Queue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Queue.d" -MT"src/Queue.d" -o "src/Queue.o" "../src/Queue.cpp"
+Finished building: ../src/Queue.cpp
+ 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+../src/Station.cpp: In member function ‘virtual int Station::showTopOfQueue()’:
+../src/Station.cpp:149:14: error: cannot convert ‘Queue::front’ from type ‘int (Queue::)()’ to type ‘int’
+    return qu.front;
+              ^
+../src/Station.cpp: In member function ‘virtual int Station::showSizeOfQueue()’:
+../src/Station.cpp:158:14: error: cannot convert ‘Queue::size’ from type ‘int (Queue::)()’ to type ‘int’
+    return qu.size;
+              ^
+src/subdir.mk:30: recipe for target 'src/Station.o' failed
+make: *** [src/Station.o] Error 1
+17:18:35 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/Station.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Station.d" -MT"src/Station.d" -o "src/Station.o" "../src/Station.cpp"
+Finished building: ../src/Station.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+17:19:42 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:17:7: warning: unused variable ‘testing’ [-Wunused-variable]
+  bool testing = true;
+       ^
+Finished building: ../src/main.cpp
+ 
+Building target: Lab_4
+Invoking: GCC C++ Linker
+g++  -o "Lab_4"  ./src/Factory.o ./src/Queue.o ./src/Stack.o ./src/Station.o ./src/main.o   
+Finished building target: Lab_4
+ 
+17:26:29 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+make: Nothing to be done for 'all'.
+17:27:55 **** Incremental Build of configuration Debug for project Lab_4 ****
+make all 
+make: Nothing to be done for 'all'.

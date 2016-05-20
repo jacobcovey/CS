@@ -1,11 +1,12 @@
 #include "StationInterface.h"
 #include "Stack.h"
+#include "Queue.h"
 #pragma once
 
 class Station : public StationInterface
 {
 public:
-	Station () : testing(true), occupied(false) ,id(-1), st() {}
+	Station () : testing(true), occupied(false) ,id(-1), st(), qu() {}
 	 ~Station() {}
 		//Part 1--------------------------------------------------------------
 			/**
@@ -157,4 +158,5 @@ protected:
 	 bool occupied;
 	 int id;
 	 Stack st;
+	 Queue qu;
 };

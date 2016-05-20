@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <locale>
+#include <exception>
+#include <assert.h>
+#include <stdexcept>
+#include "Queue.h"
+
+
+using namespace std;
+
+bool Queue::push(int id){
+	if (queueSize >= SIZELIMIT){
+		cout << "ERROR: Stack is already full. Car was not added to stack. Car was not removed from station" << endl;
+		return false;
+	}
+	else {
+		ll.insertTail(id);
+		queueSize++;
+		if (testing)
+			cout << "Car added to stack. ID: " << top() << endl;
+		return true;
+		}
+}
+bool Queue::empty(){
+	if (ll.size()== 0)
+		return true;
+	return false;
+}
+int Queue::pop(){
+	if (queueSize <= 0){
+		if (testing)
+			cout << "ERROR: Stack is already empty";
+		return -1;
+	}
+	int HeadValue = front();
+	ll.remove(HeadValue);
+	queueSize--;
+	if (testing)
+		cout << "Car removed from stack. ID: " << topValue << endl;
+	return topValue;
+}
+int Queue::front(){
+	if (queueSize == 0)
+		return -1;
+	return ll.at(0);
+}
+int Queue::size(){
+	return queueSize;
+}

@@ -115,8 +115,15 @@ using namespace std;
 	 * @return true if the car is successfully added to the queue; false otherwise
 	 */
 	 bool Station::addToQueue(){
-		 return false;
-	 }
+		 if (!occupied)
+			 return false;
+		if (qu.push(id)){
+			removeFromStation();
+			return true;
+		}
+		else
+			return false;
+}
 
 	/**
 	 * Removes the first car in the queue and makes it the current car.
@@ -125,7 +132,12 @@ using namespace std;
 	 * @return true if the car is successfully removed from the queue; false otherwise
 	 */
 	 bool Station::removeFromQueue(){
-		 return false;
+		 int carToAdd = qu.pop();
+			 if (occupied || carToAdd == -1)
+				 return false;
+			 id = carToAdd;
+			 occupied = true;
+			return true;
 	 }
 
 	/**
@@ -134,7 +146,7 @@ using namespace std;
 	 * @return the ID of the first car in the queue; -1 if the queue is empty
 	 */
 	 int Station::showTopOfQueue(){
-		 return 0;
+		 return qu.front();
 	 }
 
 	/**
@@ -143,7 +155,7 @@ using namespace std;
 	 * @return the number of cars in the queue
 	 */
 	 int Station::showSizeOfQueue(){
-		 return 0;
+		 return qu.size();
 	 }
 
 	//Part 4--------------------------------------------------------------

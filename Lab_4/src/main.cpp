@@ -54,7 +54,7 @@ int main() {
 				 	 if (structureType == "stack")
 				 			st.addToStack();
 				 		 else if (structureType == "queue") {
-
+				 			 st.addToQueue();
 				 		 }
 				 		else if (structureType == "deque"){
 
@@ -68,7 +68,7 @@ int main() {
 				 if (structureType == "stack")
 						st.removeFromStack();
 					 else if (structureType == "queue") {
-
+						 st.removeFromQueue();
 					 }
 					else if (structureType == "deque"){
 
@@ -79,6 +79,7 @@ int main() {
 					break;
 			case 5 :
 					cout << "Stack Top: " << st.showTopOfStack() << " Stack Size: "<< st.showSizeOfStack() <<endl;
+					cout << "Queue Top: " << st.showTopOfQueue() << " Queue Size: "<< st.showSizeOfQueue() <<endl;
 					break;
 			case 6 : quite = true;
 					break;
